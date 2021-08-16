@@ -69,15 +69,15 @@ app.post('/api/users/login', (req, res) => {
 
                 // 토큰 저장(어디? 쿠키, 로컬스토리지)
                 res.cookie("x_auth", user.token)
-                .status(200)
-                .json({ loginSuccess: true, userId: user._id })
+                    .status(200)
+                    .json({ loginSuccess: true, userId: user._id })
             })
         })
     })
 })
 
 // 미들웨어 auth
-app.get('api/users/auth', auth, (req,res) => {
+app.get('/api/users/auth', auth, (req,res) => {
     // 여기까지 미들웨어를 통과해 왔다는 얘기는 Authentocation이 true라는 말.
     res.status(200).json({
         _id: req.user._id,
