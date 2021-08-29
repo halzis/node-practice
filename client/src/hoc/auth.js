@@ -28,7 +28,7 @@ export default function (SpecificComponent, option, adminRoute = null) {
                         props.history.push('/')
                         alert("admin 권한이 없습니다.")
                     } else {
-                        if(!option) {
+                        if(option === false) {
                             props.history.push('/')
                             alert("로그아웃하고 접속해주세요.")
                         }
